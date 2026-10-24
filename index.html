@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>ANAS — A Day to Remember</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#d7b56d;--cream:#f7e9c7;--bg:#090909;--muted:#a6a092;--line:#d7b56d35}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:25px}
+body{margin:0;background:radial-gradient(ellipse at top,#21190c 0,transparent 45%),var(--bg);color:#f8f4e9;font-family:Cairo,sans-serif}
+button{font:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+nav{height:70px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.logo{font:700 25px "Cormorant Garamond",serif;letter-spacing:5px;color:var(--gold);direction:ltr}
+nav small{color:#aaa;letter-spacing:2px;font-size:9px}
+.hero{min-height:88svh;display:grid;place-items:center;text-align:center;padding:60px 20px;position:relative;overflow:hidden}
+.hero:before,.hero:after{content:"";position:absolute;width:240px;height:240px;border:1px solid #d7b56d15;border-radius:50%;pointer-events:none}
+.hero:before{width:380px;height:380px}
+.hero:after{width:540px;height:540px}
+.hero-content{position:relative;z-index:1}
+.eyebrow,.kicker{font-size:10px;letter-spacing:4px;color:var(--gold);direction:ltr}
+h1{font:600 clamp(75px,17vw,155px)/1 "Cormorant Garamond",serif;letter-spacing:7px;margin:20px 0;background:linear-gradient(110deg,#a77c32,#fff0c8,#c49a4c);background-clip:text;color:transparent;direction:ltr;animation:appear 1.2s both}
+@keyframes appear{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero p{max-width:500px;margin:25px auto;color:#c7c0b2;font-size:13px;line-height:2.3}
+.btn{background:linear-gradient(110deg,#ad8135,#f4e0aa,#bb9044);color:#15110a;border:1px solid var(--gold);padding:12px 23px;font-size:12px;font-weight:800;transition:.25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px #d7b56d25}
+.btn.outline{background:transparent;color:var(--cream)}
+.divider{width:55px;height:1px;background:var(--gold);margin:25px auto}
+.hero small{display:block;color:#797366;font-size:9px;margin-top:16px}
+section{padding:75px 7%;max-width:1200px;margin:auto}
+.section-head{text-align:center;margin-bottom:35px}
+h2{font-size:clamp(27px,5vw,40px);font-weight:500;color:var(--cream);margin:12px 0}
+.section-head p,.muted{font-size:12px;color:var(--muted);line-height:2}
+.panel{border:1px solid var(--line);background:linear-gradient(135deg,#19150e,#0c0c0c 70%);padding:clamp(22px,5vw,45px);max-width:900px;margin:auto}
+.center{text-align:center}
+.big-title{font:600 36px "Cormorant Garamond",serif;direction:ltr;color:var(--gold);margin:12px 0}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:600px;margin:30px auto 0}
+.count{border:1px solid var(--line);padding:18px 5px;background:#ffffff04}
+.count b{display:block;font:600 30px "Cormorant Garamond",serif;color:var(--gold);direction:ltr}
+.count span{font-size:10px;color:#aaa}
+.letter{white-space:pre-line;line-height:2.5;color:#d8d0c0;font-size:14px}
+.signature{font:italic 27px "Cormorant Garamond",serif;color:var(--gold);text-align:left;direction:ltr;margin-top:20px}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.photo{position:relative;aspect-ratio:4/5;border:1px solid var(--line);background:linear-gradient(140deg,#241d10,#0d0d0d);display:grid;place-items:center;overflow:hidden}
+.photo input{position:absolute;inset:0;width:100%;height:100%;opacity:0;z-index:2;cursor:pointer}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo span{font-size:11px;color:#c6ac71;text-align:center;padding:8px;line-height:2}
+.photo strong{display:block;font:600 32px "Cormorant Garamond",serif}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{border:1px solid var(--line);background:#ffffff04;padding:24px;min-width:0}
+.icon{font-size:25px;color:var(--gold)}
+h3{font-size:16px;font-weight:600;margin:8px 0}
+.card p{font-size:12px;color:var(--muted);line-height:2}
+.options{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.options button{background:#ffffff06;color:#eee;border:1px solid #ffffff25;padding:9px 13px;font-size:11px}
+.options button:hover{border-color:var(--gold)}
+.result{color:var(--gold);font-size:12px;line-height:2;margin-top:12px;min-height:25px}
+.envelopes{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.envelopes button{background:#17130c;color:var(--gold);border:1px solid var(--line);padding:13px 3px;font-size:11px}
+.envelopes span{display:block;font-size:23px;margin-bottom:5px}
+.wheel{width:min(220px,65vw);aspect-ratio:1;border-radius:50%;margin:20px auto;background:conic-gradient(#d7b56d 0 45deg,#18130a 45deg 90deg,#d7b56d 90deg 135deg,#18130a 135deg 180deg,#d7b56d 180deg 225deg,#18130a 225deg 270deg,#d7b56d 270deg 315deg,#18130a 315deg);border:5px solid #a78342;display:grid;place-items:center;transition:transform 3s cubic-bezier(.12,.7,.15,1)}
+.wheel span{background:#090909;border:1px solid var(--gold);border-radius:50%;width:80px;height:80px;display:grid;place-items:center;color:var(--gold);font-size:12px}
+#wish{min-height:60px;color:var(--cream);font-size:15px;line-height:2;margin:20px 0}
+.candles{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:25px auto;max-width:400px}
+.candle{height:43px;width:16px;border:1px solid #e0c174;background:repeating-linear-gradient(45deg,#c9a354 0 4px,#fff0c8 4px 8px);position:relative}
+.candle:before{content:"";position:absolute;top:-12px;left:4px;width:6px;height:9px;border-radius:60% 40% 60% 40%;background:#ffc24c;box-shadow:0 0 12px #ffc24c;animation:flame .6s infinite alternate}
+.candle.out:before{display:none}
+@keyframes flame{to{transform:rotate(12deg) scale(.8)}}
+.cake{font-size:85px;filter:drop-shadow(0 0 20px #d7b56d22)}
+#confetti{position:fixed;inset:0;z-index:20;pointer-events:none}
+footer{text-align:center;border-top:1px solid var(--line);padding:28px;color:#777;font-size:10px}
+footer strong{display:block;color:var(--gold);font:600 19px "Cormorant Garamond",serif;letter-spacing:4px;margin-bottom:8px;direction:ltr}
+.music-pill{position:fixed;bottom:18px;left:18px;z-index:5;border:1px solid #d7b56d88;background:#100e09;color:var(--gold);padding:11px 15px;border-radius:30px;font-size:11px;box-shadow:0 5px 25px #0008}
+.modal{display:none;position:fixed;inset:0;z-index:30;background:#000d;place-items:center;padding:20px}
+.modal.show{display:grid}
+.modal-box{width:min(420px,100%);background:#111;border:1px solid var(--gold);padding:30px;text-align:center}
+.modal-box h3{color:var(--gold)}
+.modal-box p{color:#ddd;line-height:2;font-size:13px}
+[hidden]{display:none!important}
+@media(max-width:650px){nav{padding:0 5%;height:60px}nav small{letter-spacing:1px;font-size:8px}section{padding:55px 5%}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.cards{grid-template-columns:1fr}.countdown{gap:5px}.count{padding:14px 2px}.count b{font-size:25px}.hero{min-height:85svh}h1{letter-spacing:3px}.letter{font-size:13px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@media print{nav,.hero,#surprises,#gallery-section,#wishes,#confetti,.music-pill,footer,.btn{display:none!important}body{background:white;color:black}.panel{background:white;border:1px solid #aaa}.letter{color:#222}section{padding:20px}}
+</style>
+</head>
+<body>
+<canvas id="confetti"></canvas>
+<nav>
+<a href="#" class="logo" id="secretLogo">A<span style="color:white">.</span>EXE</a>
+<small>YOUR DAY · YOUR STORY</small>
+</nav>
+
+<header class="hero">
+<div class="hero-content">
+<div class="eyebrow">A SPECIAL DAY · A SPECIAL PERSON</div>
+<h1>ANAS</h1>
+<div class="divider"></div>
+<p>مش كل يوم بيكون عادي… في يوم يستاهل نوقف فيه الوقت ونحتفل بشخص وجوده فارق.<br>الهدية دي معمولة ليك أنت.</p>
+<button class="btn" onclick="openGift()">افتح هديتك <span>↗</span></button>
+<small>MADE FOR ANAS · WITH CARE</small>
+</div>
+</header>
+
+<main id="gift" hidden>
+<section id="moment">
+<div class="section-head"><div class="kicker">01 — YOUR CHAPTER</div><h2>حكاية سنة جديدة</h2><p>خمستاشر سنة من الحكايات… ولسه أجمل فصول القصة جاية.</p></div>
+<div class="panel center">
+<div class="kicker">HAPPY BIRTHDAY</div>
+<div class="big-title">A NEW CHAPTER</div>
+<p class="muted">سنة جديدة، فرص جديدة، وأحلام تستاهل إنك تسعى لها.</p>
+<div class="countdown">
+<div class="count"><b>15</b><span>سنة من الحكايات</span></div>
+<div class="count"><b>∞</b><span>أحلام جاية</span></div>
+<div class="count"><b>01</b><span>يومك أنت</span></div>
+<div class="count"><b>365</b><span>فرصة جديدة</span></div>
+</div>
+</div>
+</section>
+
+<section id="letter-section">
+<div class="section-head"><div class="kicker">02 — A LETTER FOR YOU</div><h2>كلام من القلب</h2><p>رسالة صغيرة في يوم كبير.</p></div>
+<div class="panel"><div class="letter">يا أنس، كل سنة وأنت طيب ❤️
+
+أتمنى إن السنة الجديدة من عمرك تكون مليانة نجاح وراحة بال وضحك من القلب، وإنك تفضل محاط بالناس اللي بتحبك بجد.
+
+أتمنى تحقق الحاجات اللي نفسك فيها، وتبص لنفسك بعد فترة وتكون فخور بكل خطوة أخدتها.
+
+النهارده يومك، فاستمتع بيه وافتكر إن أحلى الحكايات لسه ما بدأتش.
+
+كل سنة وأنت بخير يا أنس، وعقبال سنين كتير كلها خير ونجاح وذكريات حلوة.</div><div class="signature">For Anas, with love.</div></div>
+</section>
+
+<section id="gallery-section">
+<div class="section-head"><div class="kicker">03 — THE ARCHIVE</div><h2>ألبوم الذكريات</h2><p>اضغط على الإطارات لإضافة صورك. الصور المختارة محلية على جهازك فقط.</p></div>
+<div class="gallery">
+<label class="photo"><input type="file" accept="image/*" onchange="loadPhoto(this)"><span><strong>01</strong>اضغط لإضافة صورة</span></label>
+<label class="photo"><input type="file" accept="image/*" onchange="loadPhoto(this)"><span><strong>02</strong>لحظة جميلة</span></label>
+<label class="photo"><input type="file" accept="image/*" onchange="loadPhoto(this)"><span><strong>03</strong>من الأرشيف</span></label>
+<label class="photo"><input type="file" accept="image/*" onchange="loadPhoto(this)"><span><strong>04</strong>ضحكة ما تتنسيش</span></label>
+<label class="photo"><input type="file" accept="image/*" onchange="loadPhoto(this)"><span><strong>05</strong>أيام حلوة</span></label>
+<label class="photo"><input type="file" accept="image/*" onchange="loadPhoto(this)"><span><strong>06</strong>والباقي جاي</span></label>
+</div>
+</section>
+
+<section id="surprises">
+<div class="section-head"><div class="kicker">04 — THE SECRET ROOM</div><h2>حاجات مستخبية ليك</h2><p>كل ركن هنا فيه مفاجأة صغيرة.</p></div>
+<div class="cards">
+<div class="card"><div class="icon">✉</div><h3>صندوق الرسائل</h3><p>اختار ظرف وافتح الرسالة اللي جواه.</p><div class="envelopes">
+<button onclick="showEnvelope(0)"><span>✉</span>ظرف 01</button>
+<button onclick="showEnvelope(1)"><span>✉</span>ظرف 02</button>
+<button onclick="showEnvelope(2)"><span>✉</span>ظرف 03</button>
+</div></div>
+<div class="card"><div class="icon">◈</div><h3>اختبار الصداقة</h3><p>إيه أهم حاجة في أي صداقة حقيقية؟</p><div class="options"><button onclick="quiz(0)">الثقة</button><button onclick="quiz(1)">المصلحة</button><button onclick="quiz(2)">المظاهر</button></div><div class="result" id="quizResult"></div></div>
+<div class="card"><div class="icon">✧</div><h3>عجلة الحظ</h3><p>لفّ العجلة واكتشف رسالتك.</p><div class="wheel" id="wheel"><span>YOUR LUCK</span></div><button class="btn outline" onclick="spinWheel()">لفّ العجلة</button><div class="result" id="wheelResult"></div></div>
+<div class="card"><div class="icon">♫</div><h3>ANAS Original Soundtrack</h3><p>موسيقى إلكترونية هادئة من تأليف الكود نفسه، موحدة لكل الزوار، من غير ملف خارجي.</p><button class="btn outline" onclick="toggleMusic()">تشغيل / إيقاف الموسيقى</button><div class="result" id="musicStatus">الموسيقى متوقفة</div><p>يمكن للمتصفح طلب الضغط على زر التشغيل قبل سماع الصوت.</p></div>
+</div>
+</section>
+
+<section id="wishes">
+<div class="section-head"><div class="kicker">05 — FIFTEEN WISHES</div><h2>خمستاشر أمنية</h2><p>اضغط واكتشف أمنية جديدة في كل مرة.</p><div id="wish">أمنيتك الأولى مستنياك…</div><button class="btn" onclick="newWish()">اكشف أمنية ✦</button></div>
+</section>
+
+<section id="finale">
+<div class="section-head"><div class="kicker">06 — THE GRAND FINALE</div><h2>لحظة الاحتفال</h2><p>خمستاشر شمعة، وخمستاشر أمنية حلوة.</p></div>
+<div class="panel center">
+<div class="candles" id="candles"></div>
+<div class="cake">🎂</div>
+<p class="muted" id="cakeMessage">اطفِ الشموع واحدة واحدة، واتمنى حاجة حلوة.</p>
+<button class="btn" onclick="blowCandles()">اطفِ كل الشموع ✨</button>
+<p><button class="btn outline" onclick="celebrate()">ابدأ الاحتفال 🎉</button></p>
+<p><button class="btn outline" onclick="window.print()">اطبع شهادة عيد الميلاد</button></p>
+</div>
+</section>
+</main>
+
+<footer><strong>ANAS.EXE</strong>A MEMORY TO KEEP · MADE WITH CARE</footer>
+<button class="music-pill" id="musicPill" onclick="toggleMusic()">♫ تشغيل الموسيقى</button>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+<div class="modal-box"><h3 id="modalTitle">رسالة ليك</h3><p id="modalText"></p><button class="btn" onclick="closeModal()">حلوة ❤️</button></div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+function openGift(){
+$("gift").hidden=false;
+$("gift").scrollIntoView({behavior:"smooth"});
+if(!musicOn)toggleMusic();
+}
+const envelopes=[
+"أتمنى إنك تفضل دايمًا الشخص اللي وجوده بيخلّي اليوم أخف وأحلى. ❤️",
+"افتكر إنك تستاهل النجاح والفرحة، حتى في الأيام الصعبة.",
+"السنة دي صفحة جديدة… اكتب فيها حكايات تفتخر بيها."
+];
+function showEnvelope(i){showModal("رسالة رقم "+(i+1),envelopes[i])}
+function showModal(title,text){$("modalTitle").textContent=title;$("modalText").textContent=text;$("modal").classList.add("show")}
+function closeModal(){$("modal").classList.remove("show")}
+function quiz(i){$("quizResult").textContent=i===0?"إجابة صح! الثقة أساس الصداقة الحقيقية ❤️":"فكر فيها تاني… الصداقة الحقيقية أساسها الثقة والجدعنة."}
+const luck=["سنة فيها نجاحات تستاهلها ✨","خبر حلو في الطريق ليك","مغامرة جديدة مستنياك","أيام خفيفة وضحك كتير","خطوة تقرّبك من حلمك","صحة وراحة بال وناس صافية"];
+let spinning=false;
+function spinWheel(){if(spinning)return;spinning=true;let deg=1440+Math.random()*1440;$("wheel").style.transform="rotate("+deg+"deg)";setTimeout(()=>{ $("wheelResult").textContent=luck[Math.floor(Math.random()*luck.length)];spinning=false},3000)}
+const wishes=["أتمنى لك نجاح يفرّح قلبك.","أتمنى تلاقي فرص تستاهلها.","أتمنى تفضل محاط بناس بتحبك بجد.","أتمنى كل تعبك يجيب نتيجة حلوة.","أتمنى صحتك وراحة بالك يدوموا.","أتمنى تضحك من قلبك أكتر.","أتمنى تكتشف حاجات جديدة بتحبها.","أتمنى أحلامك تقرّب خطوة كل يوم.","أتمنى تبقى فخور بنفسك.","أتمنى أيامك تبقى مليانة خير.","أتمنى تفضل شجاع وقت التحديات.","أتمنى تلاقي وقت للحاجات اللي بتفرحك.","أتمنى ذكريات السنة دي تبقى جميلة.","أتمنى الخير ييجي لك من حيث لا تحتسب.","وأمنيتي الأخيرة: كل سنة وأنت طيب يا أنس!"];
+let wishIndex=0;
+function newWish(){if(wishIndex===wishes.length)wishIndex=0;$("wish").textContent=wishes[wishIndex++]}
+for(let i=0;i<15;i++){let c=document.createElement("button");c.className="candle";c.title="شمعة "+(i+1);c.setAttribute("aria-label","إطفاء شمعة "+(i+1));c.onclick=()=>{c.classList.add("out");checkCandles()};$("candles").appendChild(c)}
+function checkCandles(){if(document.querySelectorAll(".candle:not(.out)").length===0){$("cakeMessage").textContent="كل الأمنيات ليك يا أنس! كل سنة وأنت طيب ❤️";celebrate()}}
+function blowCandles(){document.querySelectorAll(".candle").forEach((c,i)=>setTimeout(()=>{c.classList.add("out");checkCandles()},i*100))}
+function loadPhoto(input){const file=input.files&&input.files[0];if(!file||!file.type.startsWith("image/"))return;const url=URL.createObjectURL(file),parent=input.parentElement;let img=parent.querySelector("img");if(!img){img=document.createElement("img");parent.appendChild(img)}img.src=url;const span=parent.querySelector("span");if(span)span.style.display="none"}
+
+// موسيقى مولدة محليا: لا تحتاج إلى ملف خارجي
+let audioCtx=null,masterGain=null,musicTimer=null,musicOn=false,step=0;
+const notes=[130.81,164.81,196,246.94,196,164.81,146.83,174.61];
+function tone(freq,start,duration,volume,type="sine"){
+if(!audioCtx||!masterGain)return;
+const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();
+osc.type=type;osc.frequency.setValueAtTime(freq,start);
+gain.gain.setValueAtTime(.0001,start);
+gain.gain.exponentialRampToValueAtTime(volume,start+.35);
+gain.gain.exponentialRampToValueAtTime(.0001,start+duration);
+osc.connect(gain);gain.connect(masterGain);osc.start(start);osc.stop(start+duration+.1);
+}
+function beat(){
+if(!musicOn||!audioCtx)return;
+const now=audioCtx.currentTime,f=notes[step%notes.length];
+tone(f*2,now,2.2,.035);
+if(step%2===0)tone(f/2,now,3.5,.025);
+if(step%4===0)tone(f*3,now+.15,1.8,.009);
+step++;
+}
+async function toggleMusic(){
+try{
+if(!audioCtx){
+audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+masterGain=audioCtx.createGain();masterGain.gain.value=.0001;masterGain.connect(audioCtx.destination);
+}
+if(audioCtx.state==="suspended")await audioCtx.resume();
+musicOn=!musicOn;
+if(musicOn){
+masterGain.gain.setTargetAtTime(.20,audioCtx.currentTime,.3);
+beat();musicTimer=setInterval(beat,2200);
+$("musicStatus").textContent="الموسيقى تعمل ♪";
+$("musicPill").textContent="Ⅱ إيقاف الموسيقى";
+}else{
+clearInterval(musicTimer);musicTimer=null;
+masterGain.gain.setTargetAtTime(.0001,audioCtx.currentTime,.08);
+$("musicStatus").textContent="الموسيقى متوقفة";
+$("musicPill").textContent="♫ تشغيل الموسيقى";
+}
+}catch(e){$("musicStatus").textContent="المتصفح لم يسمح بتشغيل الصوت."}
+}
+
+function celebrate(){
+const canvas=$("confetti"),ctx=canvas.getContext("2d");
+canvas.width=innerWidth;canvas.height=innerHeight;
+const pieces=Array.from({length:150},()=>({x:Math.random()*canvas.width,y:-Math.random()*canvas.height,v:2+Math.random()*5,r:2+Math.random()*4,a:Math.random()*6}));
+let frame=0;
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+pieces.forEach(p=>{p.y+=p.v;p.x+=Math.sin((p.y+p.a)/25);ctx.fillStyle=["#d7b56d","#fff0c5","#b68a3e","#ffffff"][Math.floor(Math.random()*4)];ctx.fillRect(p.x,p.y,p.r,p.r*1.8)});
+if(++frame<150)requestAnimationFrame(draw);else ctx.clearRect(0,0,canvas.width,canvas.height);
+}
+draw();
+}
+$("secretLogo").addEventListener("click",e=>{e.preventDefault();secretClicks++;if(secretClicks>=5){secretClicks=0;showModal("SECRET UNLOCKED ✦","وصلت للسر المخفي! أحلى هدية هي الذكريات اللي بتعيش معانا.");celebrate()}});
+let secretClicks=0;
+window.addEventListener("resize",()=>{const c=$("confetti");c.width=innerWidth;c.height=innerHeight});
+</script>
+</body>
+</html>
